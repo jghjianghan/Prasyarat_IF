@@ -1,8 +1,10 @@
-package id.ac.unpar.informatika.prasyaratif;
+package id.ac.unpar.informatika.prasyaratif.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import id.ac.unpar.informatika.prasyaratif.R;
 
 public class MainActivity extends AppCompatActivity {
 
