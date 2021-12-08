@@ -124,7 +124,10 @@ public class MataKuliah {
         return prasyaratBersamaan;
     }
 
-    public Integer getBerlakuAngkatan() {
+    /**
+     * @return Mata kuliah ini berlaku mulai angkatan berapa jika ada, jika tidak ada, mengembalikan nilai 0
+     */
+    public int getBerlakuAngkatan() {
         return berlakuAngkatan;
     }
 
