@@ -1,5 +1,7 @@
 package id.ac.unpar.informatika.prasyaratif.model;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,7 +17,7 @@ public class MataKuliah {
     private List<MataKuliah> prasyaratTempuh;
     private List<MataKuliah> prasyaratLulus;
     private List<MataKuliah> prasyaratBersamaan;
-    private Integer berlakuAngkatan;
+    private int berlakuAngkatan;
     private boolean isFavorite;
     private int prasyaratWajibBagi;
     private int prasyaratLulusBagi;
@@ -75,7 +77,7 @@ public class MataKuliah {
             List<MataKuliah> prasyaratTempuh,
             List<MataKuliah> prasyaratLulus,
             List<MataKuliah> prasyaratBersamaan,
-            Integer berlakuAngkatan,
+            int berlakuAngkatan,
             boolean isFavorite
     ) {
         this.nama = nama;
@@ -155,4 +157,33 @@ public class MataKuliah {
         this.prasyaratWajibBagi = prasyaratWajibBagi;
     }
 
+    @Override
+    public String toString() {
+        String[] daftarPrasyaratLulus = new String[prasyaratLulus.size()];
+        for(int i = 0; i<daftarPrasyaratLulus.length; i++){
+            daftarPrasyaratLulus[i] = prasyaratLulus.get(i).getKode();
+        }
+        String[] daftarPrasyaratTembuh = new String[prasyaratTempuh.size()];
+        for(int i = 0; i<daftarPrasyaratTembuh.length; i++){
+            daftarPrasyaratTembuh[i] = prasyaratTempuh.get(i).getKode();
+        }
+        String[] daftarPrasyaratBersamaan = new String[prasyaratBersamaan.size()];
+        for(int i = 0; i<daftarPrasyaratBersamaan.length; i++){
+            daftarPrasyaratBersamaan[i] = prasyaratBersamaan.get(i).getKode();
+        }
+        return "MataKuliah{" +
+                "nama='" + nama + '\'' +
+                ", kode='" + kode + '\'' +
+                ", semester=" + semester +
+                ", wajib=" + wajib +
+                ", sks=" + sks +
+                ", isFavorite=" + isFavorite +
+                ", berlakuAngkatan=" + berlakuAngkatan +
+                ", prasyaratWajibBagi=" + prasyaratWajibBagi +
+                ", prasyaratLulusBagi=" + prasyaratLulusBagi +
+                ", prasyarat_lulus=" + Arrays.toString(daftarPrasyaratLulus) +
+                ", prasyarat_tempuh=" + Arrays.toString(daftarPrasyaratTembuh) +
+                ", prasyarat_bersamaan=" + Arrays.toString(daftarPrasyaratBersamaan) +
+                '}';
+    }
 }
