@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -125,6 +126,10 @@ public class MataKuliahService {
         int nVertex = mkId.size();
         List<List<Integer>> adjacencyListLulus = new ArrayList<>(nVertex);
         List<List<Integer>> adjacencyListTempuh = new ArrayList<>(nVertex);
+        for(int i = 0; i<nVertex; i++){
+            adjacencyListLulus.add(new ArrayList<>());
+            adjacencyListTempuh.add(new ArrayList<>());
+        }
         for(int i = 0; i<nVertex; i++){
             MataKuliah currMK = mkId.get(i);
             for(MataKuliah prasyarat : currMK.getPrasyaratLulus()){
