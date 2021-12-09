@@ -29,10 +29,11 @@ public class MataKuliahService {
     /**
      * Mengambil data ke API, lalu diberi ke listener
      * Jika data sudah pernah diambil, langsung diberikan ke listener
+     *
      * @param listener Object (view) yang membutuhkan datanya
      */
-    public void fetchMataKuliah(APIListener listener){
-        if (isFetched){
+    public void fetchMataKuliah(APIListener listener) {
+        if (isFetched) {
             listener.onFetched(mataKuliahPerSemester);
         } else {
             //Fetch di thread baru
@@ -61,15 +62,13 @@ public class MataKuliahService {
 
                     isFetched = true;
                     listener.onFetched(mataKuliahPerSemester);
-                }
-                catch (IOException | JSONException e) {
+                } catch (IOException | JSONException e) {
                     e.printStackTrace();
-                }
-                finally {
-                    if (urlConnection != null){
+                } finally {
+                    if (urlConnection != null) {
                         urlConnection.disconnect();
                     }
-                    if (in != null){
+                    if (in != null) {
                         try {
                             in.close();
                         } catch (IOException e) {
@@ -84,7 +83,7 @@ public class MataKuliahService {
     //Parse data json menjadi object
     private void parseData(String json) throws JSONException {
         JSONArray arrayMatKul = new JSONArray(json);
-        for(int i = 0; i<arrayMatKul.length(); i++){
+        for (int i = 0; i < arrayMatKul.length(); i++) {
             JSONObject mkobj = arrayMatKul.getJSONObject(i);
             int semester = mkobj.getInt("semester");
 
@@ -92,7 +91,7 @@ public class MataKuliahService {
             JSONArray prasTempuhJson = prasyaratObj.getJSONArray("tempuh");
             JSONArray prasLulusJson = prasyaratObj.getJSONArray("lulus");
             JSONArray prasBersamaanJson = prasyaratObj.getJSONArray("bersamaan");
-            if (semester > mataKuliahPerSemester.size()){
+            if (semester > mataKuliahPerSemester.size()) {
                 mataKuliahPerSemester.add(new ArrayList<>());
             }
             MataKuliah mkbaru = new MataKuliah(
@@ -108,16 +107,16 @@ public class MataKuliahService {
                     false
             );
             kodeMataKuliah.put(mkbaru.getKode(), mkbaru);
-            mataKuliahPerSemester.get(semester-1).add(mkbaru);
+            mataKuliahPerSemester.get(semester - 1).add(mkbaru);
         }
     }
 
     //Menganalisa data untuk mendapat insight
-    private void analyzeData(){
+    private void analyzeData() {
         List<MataKuliah> mkId = new ArrayList<>();
         Map<String, Integer> idOfKode = new HashMap<>();
-        for(int i =0; i<mataKuliahPerSemester.size(); i++){
-            for(int j = 0; j<mataKuliahPerSemester.get(i).size(); j++){
+        for (int i = 0; i < mataKuliahPerSemester.size(); i++) {
+            for (int j = 0; j < mataKuliahPerSemester.get(i).size(); j++) {
                 idOfKode.put(mataKuliahPerSemester.get(i).get(j).getKode(), mkId.size());
                 mkId.add(mataKuliahPerSemester.get(i).get(j));
             }
@@ -126,46 +125,78 @@ public class MataKuliahService {
         int nVertex = mkId.size();
         List<List<Integer>> adjacencyListLulus = new ArrayList<>(nVertex);
         List<List<Integer>> adjacencyListTempuh = new ArrayList<>(nVertex);
-        for(int i = 0; i<nVertex; i++){
+        for (int i = 0; i < nVertex; i++) {
             adjacencyListLulus.add(new ArrayList<>());
             adjacencyListTempuh.add(new ArrayList<>());
         }
-        for(int i = 0; i<nVertex; i++){
+        for (int i = 0; i < nVertex; i++) {
             MataKuliah currMK = mkId.get(i);
-            for(MataKuliah prasyarat : currMK.getPrasyaratLulus()){
+            for (MataKuliah prasyarat : currMK.getPrasyaratLulus()) {
                 adjacencyListLulus.get(idOfKode.get(prasyarat.getKode()))
                         .add(idOfKode.get(currMK.getKode()));
             }
-            for(MataKuliah prasyarat : currMK.getPrasyaratTempuh()){
+            for (MataKuliah prasyarat : currMK.getPrasyaratTempuh()) {
                 adjacencyListLulus.get(idOfKode.get(prasyarat.getKode()))
                         .add(idOfKode.get(currMK.getKode()));
             }
         }
+        //Simpan jumlah edge keluar
+        for (int i = 0; i < nVertex; i++) {
+            mkId.get(i).setPrasyaratLulusBagi(adjacencyListLulus.get(i).size());
+            mkId.get(i).setPrasyaratTempuhBagi(adjacencyListTempuh.get(i).size());
+        }
 
-        // DFS?
+        // DFS
         boolean[] visited = new boolean[nVertex];
-        for(int i = 0; i<nVertex; i++){
-            if (!visited[i]){
-//                this.traverseGraph(i, visited, mkId, adjacencyListLulus, adjacencyListPrasyarat);
+        for (int i = 0; i < nVertex; i++) {
+            if (!visited[i]) {
+                this.traverseGraph(i, visited, mkId, adjacencyListLulus, adjacencyListTempuh);
             }
 
         }
     }
 
-    private void traverseGraph(int currentVertex, boolean[] isVisited, List<List<Integer>> adjacencyListLulus, List<List<Integer>> adjacencyListPrasyarat){
+    /**
+     * Melakukan traversal pada graf prasyarat secara dfs untuk menghitung maximum reachable depth-nya
+     * @param currentVertex Vertex yang sedang dikunjungi saat ini
+     * @param isVisited Array boolean yang menandai apakah vertex sudah dikunjungi atau belum
+     * @param mkId List mata kuliah secara terurut
+     * @param adjacencyListLulus Adjacency list berdasarkan syarat lulus
+     * @param adjacencyListTempuh Adjacency list berdasarkan syarat tempuh
+     */
+    private void traverseGraph(int currentVertex, boolean[] isVisited, List<MataKuliah> mkId, List<List<Integer>> adjacencyListLulus, List<List<Integer>> adjacencyListTempuh) {
         isVisited[currentVertex] = true;
-        int countDescendantHarusLulus;
+        int maxDepth = 0;
+        for (int neighbor : adjacencyListLulus.get(currentVertex)) {
+            if (!isVisited[neighbor]) {
+                traverseGraph(neighbor, isVisited, mkId, adjacencyListLulus, adjacencyListTempuh);
+            }
+            maxDepth = Math.max(maxDepth, 1 + mkId.get(neighbor).getPanjangRantaiKeBawah());
+        }
+        for (int neighbor : adjacencyListTempuh.get(currentVertex)) {
+            if (!isVisited[neighbor]) {
+                traverseGraph(neighbor, isVisited, mkId, adjacencyListLulus, adjacencyListTempuh);
+            }
+            maxDepth = Math.max(maxDepth, 1 + mkId.get(neighbor).getPanjangRantaiKeBawah());
+        }
+        mkId.get(currentVertex).setPanjangRantaiKeBawah(maxDepth);
     }
 
-    private List<MataKuliah> parsePrasyarat(JSONArray listKodePrasyarat ) throws JSONException {
+    /**
+     * Memproses prasyarat dalam bentuk JSONArray dan mengembalikannya sebagai List MataKuliah
+     * @param listKodePrasyarat Daftar kode prasyarat
+     * @return Daftar objek MataKuliah dalam bentuk List
+     * @throws JSONException Jika terjadi error saat melakukan parsing JSON
+     */
+    private List<MataKuliah> parsePrasyarat(JSONArray listKodePrasyarat) throws JSONException {
         List<MataKuliah> prasyaratMK = new ArrayList<>();
-        for (int j = 0; j<listKodePrasyarat.length(); j++){
+        for (int j = 0; j < listKodePrasyarat.length(); j++) {
             prasyaratMK.add(kodeMataKuliah.get(listKodePrasyarat.getString(j)));
         }
         return prasyaratMK;
     }
 
-    public interface APIListener{
+    public interface APIListener {
         public void onFetched(List<List<MataKuliah>> dataMataKuliahPerSemester);
     }
 }
