@@ -21,7 +21,7 @@ public class MataKuliah {
     private boolean isFavorite;
     private int prasyaratLulusBagi;
     private int prasyaratTempuhBagi;
-
+    private int panjangRantaiKeBawah;
 
     public MataKuliah(String nama,
                       String kode,
@@ -160,6 +160,14 @@ public class MataKuliah {
         this.prasyaratTempuhBagi = prasyaratTempuhBagi;
     }
 
+    public int getPanjangRantaiKeBawah() {
+        return panjangRantaiKeBawah;
+    }
+
+    public void setPanjangRantaiKeBawah(int panjangRantaiKeBawah) {
+        this.panjangRantaiKeBawah = panjangRantaiKeBawah;
+    }
+
     @Override
     public String toString() {
         String[] daftarPrasyaratLulus = new String[prasyaratLulus.size()];
@@ -184,6 +192,7 @@ public class MataKuliah {
                 ", berlakuAngkatan=" + berlakuAngkatan +
                 ", prasyaratLulusBagi=" + prasyaratLulusBagi +
                 ", prasyaratTempuhBagi=" + prasyaratTempuhBagi +
+                ", panjangRantaiKeBawah=" + panjangRantaiKeBawah +
                 ", prasyarat_lulus=" + Arrays.toString(daftarPrasyaratLulus) +
                 ", prasyarat_tempuh=" + Arrays.toString(daftarPrasyaratTembuh) +
                 ", prasyarat_bersamaan=" + Arrays.toString(daftarPrasyaratBersamaan) +
