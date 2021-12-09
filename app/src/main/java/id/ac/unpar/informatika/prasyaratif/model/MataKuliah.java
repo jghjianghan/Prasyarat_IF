@@ -19,8 +19,8 @@ public class MataKuliah {
     private List<MataKuliah> prasyaratBersamaan;
     private int berlakuAngkatan;
     private boolean isFavorite;
-    private int prasyaratWajibBagi;
     private int prasyaratLulusBagi;
+    private int prasyaratTempuhBagi;
 
 
     public MataKuliah(String nama,
@@ -43,7 +43,7 @@ public class MataKuliah {
             List<MataKuliah> prasyaratBersamaan,
             Integer berlakuAngkatan,
             boolean isFavorite,
-            int prasyaratWajibBagi,
+            int prasyaratTempuhBagi,
             int prasyaratLulusBagi
     ) {
         this.prasyaratTempuh = prasyaratTempuh;
@@ -51,7 +51,7 @@ public class MataKuliah {
         this.prasyaratBersamaan = prasyaratBersamaan;
         this.berlakuAngkatan = berlakuAngkatan;
         this.isFavorite = isFavorite;
-        this.prasyaratWajibBagi = prasyaratWajibBagi;
+        this.prasyaratTempuhBagi = prasyaratTempuhBagi;
         this.prasyaratLulusBagi = prasyaratLulusBagi;
     }
 
@@ -152,12 +152,12 @@ public class MataKuliah {
         this.prasyaratLulusBagi = prasyaratLulusBagi;
     }
 
-    public int getPrasyaratWajibBagi() {
-        return prasyaratWajibBagi;
+    public int getPrasyaratTempuhBagi() {
+        return prasyaratTempuhBagi;
     }
 
-    public void setPrasyaratWajibBagi(int prasyaratWajibBagi) {
-        this.prasyaratWajibBagi = prasyaratWajibBagi;
+    public void setPrasyaratTempuhBagi(int prasyaratTempuhBagi) {
+        this.prasyaratTempuhBagi = prasyaratTempuhBagi;
     }
 
     @Override
@@ -182,8 +182,8 @@ public class MataKuliah {
                 ", sks=" + sks +
                 ", isFavorite=" + isFavorite +
                 ", berlakuAngkatan=" + berlakuAngkatan +
-                ", prasyaratWajibBagi=" + prasyaratWajibBagi +
                 ", prasyaratLulusBagi=" + prasyaratLulusBagi +
+                ", prasyaratTempuhBagi=" + prasyaratTempuhBagi +
                 ", prasyarat_lulus=" + Arrays.toString(daftarPrasyaratLulus) +
                 ", prasyarat_tempuh=" + Arrays.toString(daftarPrasyaratTembuh) +
                 ", prasyarat_bersamaan=" + Arrays.toString(daftarPrasyaratBersamaan) +
