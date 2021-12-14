@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Prasyarat_IF</string>
+    <string name="filter_opt_all_semester">Tampilkan Semua Semester</string>
 </resources>
