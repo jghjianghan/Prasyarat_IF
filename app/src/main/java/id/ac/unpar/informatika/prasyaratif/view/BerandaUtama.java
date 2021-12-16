@@ -22,7 +22,6 @@ public class BerandaUtama extends Fragment {
     RecyclerView recyclerView;
     MataKuliahAdapter adapter;
     List<MataKuliah> mataKuliahList;
-    String[] matkul = {"Cafe Latte","Cappuccino","Long Black","Mocha","Magic"};
 
 
     public BerandaUtama(){}
@@ -32,19 +31,19 @@ public class BerandaUtama extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_berandautama, container, false);
 
-//        View view = inflater.inflate(R.layout.fragment_berandautama, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        adapter = new MataKuliahAdapter(matkul);
+        adapter = new MataKuliahAdapter(mataKuliahList);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    public static BerandaUtama newInstance(){
+    public static BerandaUtama newInstance(List<List<MataKuliah>> mkPerSemester){
         BerandaUtama fragment = new BerandaUtama();
+        fragment.mataKuliahList = mkPerSemester.get(0);
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
