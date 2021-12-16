@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import android.view.LayoutInflater;
@@ -60,7 +62,13 @@ public class FilterSemesterFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentFilterSemesterBinding.inflate(inflater, container, false);
         binding.rvSemesterList.setAdapter(new SemesterListAdapter(jumlahSemester));
+
         binding.rvSemesterList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        // Set item separator
+        RecyclerView.ItemDecoration itemSeparator = new DividerItemDecoration(binding.rvSemesterList.getContext(),
+                DividerItemDecoration.VERTICAL);
+        binding.rvSemesterList.addItemDecoration(itemSeparator);
 
         // Disable dimming animation
         ((SimpleItemAnimator) Objects.requireNonNull(binding.rvSemesterList.getItemAnimator())).setSupportsChangeAnimations(false);
