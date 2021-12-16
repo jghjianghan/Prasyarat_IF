@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import id.ac.unpar.informatika.prasyaratif.view.BerandaUtama;
 import id.ac.unpar.informatika.prasyaratif.view.FragmentListener;
@@ -32,10 +34,11 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         fragmentTransaction = fragmentManager.beginTransaction();
 
         if(page == 1){
-            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
+//            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
+            fragmentTransaction.add(R.id.layout, new BerandaUtama()).commit();
         }
 
-        fragmentTransaction.commit();
+//        fragmentTransaction.commit();
     }
 
     @Override
