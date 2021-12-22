@@ -29,10 +29,10 @@ public class BerandaUtama extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_berandautama, container, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.semester_recyclerview, container, false);
 
 
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.main_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         adapter = new MataKuliahAdapter(mataKuliahList);

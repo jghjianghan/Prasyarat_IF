@@ -27,7 +27,7 @@ public class MataKuliahAdapter extends RecyclerView.Adapter<MataKuliahAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.semester_rv_item, parent, false));
     }
 
     @Override
@@ -36,6 +36,7 @@ public class MataKuliahAdapter extends RecyclerView.Adapter<MataKuliahAdapter.Vi
         String sks = Integer.toString(mataKuliahList.get(position).getSks());
         String nama = mataKuliahList.get(position).getNama();
         String isWajib = "Wajib";
+        boolean isExpandable;
 
         if(mataKuliahList.get(position).isWajib()){
             holder.tvWajib.setText(isWajib);
