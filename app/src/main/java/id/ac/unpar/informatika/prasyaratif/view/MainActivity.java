@@ -1,8 +1,14 @@
 package id.ac.unpar.informatika.prasyaratif.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -12,39 +18,48 @@ import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
 
 public class MainActivity extends AppCompatActivity implements PrasyaratContract.UI {
 
+    private AppBarConfiguration mAppBarConfiguration;
+    private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        setSupportActionBar(binding.appBarMain.toolbar);
+        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                .setOpenableLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    /**
-     * Menampilkan daftar mata kuliah per semester di halaman Beranda Utama
-     *
-     * @param MKPerSemester Data mata kuliah per semester. MKPerSemester.get(i) mengembalikan list mata kuliah untuk semester ke-[i+1]
-     */
     @Override
-    public void displayMataKuliah(List<List<MataKuliah>> MKPerSemester) {
-
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
-    /**
-     * Menampilkan daftar mata kuliah yang sesuai dengan kata kunci pencarian di halaman Search
-     *
-     * @param listMK Data mata kuliah yang perlu ditampilkan
-     */
     @Override
-    public void displaySearchResult(List<MataKuliah> listMK) {
-
-    }
-
-    /**
-     * Menampilkan daftar mata kuliah yang ditandai bintang pada halaman Favorit
-     *
-     * @param listMK
-     */
-    @Override
-    public void displayFavorites(List<MataKuliah> listMK) {
-
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }

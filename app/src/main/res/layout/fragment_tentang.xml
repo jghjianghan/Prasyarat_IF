@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Tentang.TentangFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/header_app"
+        android:textColor="@color/header_color"
+        android:textSize="@dimen/header_size"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/header_menu"
+        />
+
+    <TextView
+        android:layout_width="408dp"
+        android:layout_height="159dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/about"
+        android:textColor="@color/header_color"
+        android:textSize="@dimen/header_size"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
