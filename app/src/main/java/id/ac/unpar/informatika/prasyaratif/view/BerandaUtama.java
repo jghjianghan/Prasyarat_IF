@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,16 +14,29 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import id.ac.unpar.informatika.prasyaratif.R;
+import id.ac.unpar.informatika.prasyaratif.model.ExpandableListDataPump;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
 
-public class BerandaUtama extends Fragment {
+public class BerandaUtama
+        extends Fragment
+        implements ExpandableListView.OnGroupExpandListener,
+        ExpandableListView.OnGroupCollapseListener,
+        ExpandableListView.OnChildClickListener{
+
     private FragmentListener listener;
     RecyclerView recyclerView;
-    MataKuliahAdapter adapter;
+
     List<MataKuliah> mataKuliahList;
+
+    ExpandableListView expandableListView;
+    MataKuliahAdapter adapterMatkul;
+    List<String> expandableListTitle;
+    HashMap<String, List<MataKuliah>> expandableListDetail;
 
 
     public BerandaUtama(){}
@@ -29,14 +44,16 @@ public class BerandaUtama extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.semester_recyclerview, container, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.beranda_utama, container, false);
+//        recyclerView = view.findViewById(R.id.main_rv);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
+        expandableListView = view.findViewById(R.id.expandableListView);
+        expandableListDetail = ExpandableListDataPump.getData();
+        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
 
-        recyclerView = view.findViewById(R.id.main_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
-        adapter = new MataKuliahAdapter(mataKuliahList);
-        recyclerView.setAdapter(adapter);
+        adapterMatkul = new MataKuliahAdapter(getContext(), expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(adapterMatkul);
 
         return view;
     }
@@ -57,5 +74,33 @@ public class BerandaUtama extends Fragment {
         } else {
             throw new ClassCastException(context.toString() + " Must Implement Fragment Listener");
         }
+    }
+
+    @Override
+    public void onGroupExpand(int groupPosition) {
+        Toast.makeText(getActivity(),
+                expandableListTitle.get(groupPosition) + " List Expanded.",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onGroupCollapse(int groupPosition) {
+        Toast.makeText(getActivity(),
+                expandableListTitle.get(groupPosition) + " List Collapsed.",
+                Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+        Toast.makeText(
+                getActivity(),
+                expandableListTitle.get(groupPosition)
+                        + " -> "
+                        + expandableListDetail.get(
+                        expandableListTitle.get(groupPosition)).get(
+                        childPosition), Toast.LENGTH_SHORT
+        ).show();
+        return false;
     }
 }
