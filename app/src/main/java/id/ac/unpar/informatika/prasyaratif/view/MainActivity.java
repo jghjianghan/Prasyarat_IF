@@ -1,6 +1,8 @@
 package id.ac.unpar.informatika.prasyaratif.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
@@ -9,13 +11,25 @@ import java.util.List;
 import id.ac.unpar.informatika.prasyaratif.PrasyaratContract;
 import id.ac.unpar.informatika.prasyaratif.R;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
+import id.ac.unpar.informatika.prasyaratif.presenter.MainPresenter;
 
-public class MainActivity extends AppCompatActivity implements PrasyaratContract.UI {
+public class MainActivity extends AppCompatActivity implements PrasyaratContract.UI, FragmentListener {
+
+    BerandaUtama berandaUtama;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    PrasyaratContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.fragmentManager = getSupportFragmentManager();
+
+        presenter = new MainPresenter(this);
+        presenter.showMataKuliah();
+
     }
 
     /**
@@ -25,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
      */
     @Override
     public void displayMataKuliah(List<List<MataKuliah>> MKPerSemester) {
+        this.berandaUtama = BerandaUtama.newInstance(MKPerSemester);
 
+        this.changePage(1);
     }
 
     /**
@@ -46,5 +62,22 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
     @Override
     public void displayFavorites(List<MataKuliah> listMK) {
 
+    }
+
+    @Override
+    public void changePage(int page) {
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        if(page == 1){
+            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
+        }
+
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void closeApplication() {
+        moveTaskToBack(true);
+        finish();
     }
 }

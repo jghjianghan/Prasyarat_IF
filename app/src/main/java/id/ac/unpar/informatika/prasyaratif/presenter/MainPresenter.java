@@ -7,6 +7,12 @@ import id.ac.unpar.informatika.prasyaratif.PrasyaratContract;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
 
 public class MainPresenter implements PrasyaratContract.Presenter {
+    PrasyaratContract.UI ui;
+
+    public MainPresenter(PrasyaratContract.UI ui){
+        this.ui = ui;
+    }
+
     /**
      * Method ini menginisiasi pengambilan data ke API.
      * Mungkin hanya dipanggil sekali di awal
@@ -25,8 +31,9 @@ public class MainPresenter implements PrasyaratContract.Presenter {
     public void showMataKuliah(){
         List<List<MataKuliah>>  mks = new ArrayList<>();
         List<MataKuliah> sem1 = new ArrayList<>();
+//        List<Semester>  mks = new ArrayList<>();
         sem1.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 1, true, 3));
-        sem1.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 1, true, 3));
+        sem1.add(new MataKuliah("Matematika Diskret", "AIF181133", 1, true, 2));
         sem1.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 1, true, 3));
 
         List<MataKuliah> sem2 = new ArrayList<>();
@@ -38,6 +45,7 @@ public class MainPresenter implements PrasyaratContract.Presenter {
         mks.add(sem2);
 
         //call UI method
+        ui.displayMataKuliah(mks);
     }
 
     /**
