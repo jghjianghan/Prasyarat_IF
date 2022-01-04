@@ -15,8 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import id.ac.unpar.informatika.prasyaratif.R;
 import id.ac.unpar.informatika.prasyaratif.model.ExpandableListDataPump;
@@ -26,7 +31,8 @@ public class BerandaUtama
         extends Fragment
         implements ExpandableListView.OnGroupExpandListener,
         ExpandableListView.OnGroupCollapseListener,
-        ExpandableListView.OnChildClickListener{
+        ExpandableListView.OnChildClickListener,
+        View.OnClickListener{
 
     private FragmentListener listener;
     RecyclerView recyclerView;
@@ -51,6 +57,8 @@ public class BerandaUtama
         expandableListView = view.findViewById(R.id.expandableListView);
         expandableListDetail = ExpandableListDataPump.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        Collections.sort(expandableListTitle);
+
 
         adapterMatkul = new MataKuliahAdapter(getContext(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(adapterMatkul);
@@ -102,5 +110,10 @@ public class BerandaUtama
                         childPosition), Toast.LENGTH_SHORT
         ).show();
         return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

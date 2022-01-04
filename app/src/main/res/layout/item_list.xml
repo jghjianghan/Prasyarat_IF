@@ -98,11 +98,11 @@
 
 
             <ImageView
-                android:id="@+id/ib_star"
+                android:id="@+id/iv_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:src="@android:drawable/btn_star_big_on"
+                android:src="@android:drawable/btn_star_big_off"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_kodeMatkul">
 

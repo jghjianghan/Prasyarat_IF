@@ -54,6 +54,7 @@ public class MataKuliahAdapter extends BaseExpandableListAdapter {
         final String sks = Integer.toString(mataKuliah.getSks());
         final String kode = mataKuliah.getKode();
         final boolean wajib = mataKuliah.isWajib();
+        boolean isFavorite = mataKuliah.getIsFavorite();
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context
@@ -64,14 +65,22 @@ public class MataKuliahAdapter extends BaseExpandableListAdapter {
         TextView tvSks = (TextView) convertView.findViewById(R.id.tv_sks);
         TextView tvKode = (TextView) convertView.findViewById(R.id.tv_kodeMatkul);
         TextView tvWajib = (TextView) convertView.findViewById(R.id.tv_wajib);
+        ImageView ivStar = convertView.findViewById(R.id.iv_star);
 
         tvNama.setText(nama);
         tvSks.setText(sks + " sks");
         tvKode.setText(kode);
+
         if(wajib){
             tvWajib.setVisibility(View.VISIBLE);
         } else {
             tvWajib.setVisibility(View.INVISIBLE);
+        }
+
+        if(isFavorite){
+            ivStar.setImageResource(android.R.drawable.btn_star_big_on);
+        } else {
+            ivStar.setImageResource(android.R.drawable.btn_star_big_off);
         }
 
         return convertView;
@@ -124,21 +133,21 @@ public class MataKuliahAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView tvKodeMataKuliah, tvJumlahSks, tvNamaMataKuliah, tvWajib;
-        ImageView isFavorite;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            tvKodeMataKuliah = itemView.findViewById(R.id.tv_kodeMatkul);
-            tvJumlahSks = itemView.findViewById(R.id.tv_sks);
-            isFavorite = itemView.findViewById(R.id.ib_star);
-            tvWajib = itemView.findViewById(R.id.tv_wajib);
-            tvNamaMataKuliah = itemView.findViewById(R.id.tv_namaMatkul);
-        }
-
-    }
+//    public static class ViewHolder extends RecyclerView.ViewHolder{
+//
+//        TextView tvKodeMataKuliah, tvJumlahSks, tvNamaMataKuliah, tvWajib;
+//        ImageView isFavorite;
+//
+//        public ViewHolder(View itemView) {
+//            super(itemView);
+//            tvKodeMataKuliah = itemView.findViewById(R.id.tv_kodeMatkul);
+//            tvJumlahSks = itemView.findViewById(R.id.tv_sks);
+//            isFavorite = itemView.findViewById(R.id.ib_star);
+//            tvWajib = itemView.findViewById(R.id.tv_wajib);
+//            tvNamaMataKuliah = itemView.findViewById(R.id.tv_namaMatkul);
+//        }
+//
+//    }
 
 }
 

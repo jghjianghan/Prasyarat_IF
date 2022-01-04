@@ -70,7 +70,15 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
 
         if(page == 1){
             fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
-        }
+        } //else if(page == 2){
+//            fragmentTransaction.replace(R.id.fragment_container, this.detilMatakuliah);
+//        } else if(page == 3){
+//            fragmentTransaction.replace(R.id.fragment_container, this.repostiory);
+//        } else if(page == 4){
+//            fragmentTransaction.replace(R.id.fragment_container, this.filter);
+//        } else if(page == 5){
+//            fragmentTransaction.replace(R.id.fragment_container, this.about?);
+//        }
 
         fragmentTransaction.commit();
     }
