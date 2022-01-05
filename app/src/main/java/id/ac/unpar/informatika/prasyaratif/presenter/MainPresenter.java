@@ -2,6 +2,7 @@ package id.ac.unpar.informatika.prasyaratif.presenter;
 
 import android.os.Looper;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,23 +38,20 @@ public class MainPresenter implements PrasyaratContract.Presenter, MataKuliahSer
     @Override
     public void showMataKuliah(){
         mataKuliahService.fetchMataKuliah(this);
-        List<List<MataKuliah>>  mks = new ArrayList<>();
-        List<MataKuliah> sem1 = new ArrayList<>();
-//        List<Semester>  mks = new ArrayList<>();
-        sem1.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 1, true, 3));
-        sem1.add(new MataKuliah("Matematika Diskret", "AIF181133", 1, true, 2));
-        sem1.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 1, true, 3));
+    }
 
-        List<MataKuliah> sem2 = new ArrayList<>();
-        sem2.add(new MataKuliah("Pemrograman Kompetitif 1", "AIF181101", 2, false, 2));
-        sem2.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 2, true, 3));
-        sem2.add(new MataKuliah("Pemodelan untuk Komputasi", "AIF181101", 2, true, 1));
-
-        mks.add(sem1);
-        mks.add(sem2);
-
-        //call UI method
-        ui.displayMataKuliah(mks);
+    @Override
+    public void showMataKuliahBerbintang() {
+        List<MataKuliah> favoriteMK = new ArrayList<>();
+        List<List<MataKuliah>> mkPerSemester = mataKuliahService.getMataKuliahPerSemester();
+        for(List<MataKuliah> semester : mkPerSemester){
+            for (MataKuliah mk : semester){
+                if (mk.getIsFavorite()){
+                    favoriteMK.add(mk);
+                }
+            }
+        }
+        ui.displayFavorites(favoriteMK);
     }
 
     /**

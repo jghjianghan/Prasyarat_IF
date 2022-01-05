@@ -36,11 +36,11 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/margin_26"/>
 
-            <ImageView
-                android:id="@+id/ib_star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/btn_star_big_off" />
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/btn_star_big_off" />
 
         </LinearLayout>
 

@@ -105,17 +105,7 @@ public class BerandaUtama
 
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//        Toast.makeText(
-//                getActivity(),
-//                expandableListTitle.get(groupPosition)
-//                        + " -> "
-//                        + expandableListDetail.get(
-//                        expandableListTitle.get(groupPosition)).get(
-//                        childPosition), Toast.LENGTH_SHORT
-//        ).show();
-
         listener.showDetailFragment(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-
         return false;
     }
 

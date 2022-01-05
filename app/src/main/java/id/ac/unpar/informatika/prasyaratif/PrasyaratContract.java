@@ -37,6 +37,8 @@ public interface PrasyaratContract {
          */
         public void showMataKuliah();
 
+        public void showMataKuliahBerbintang();
+
         /**
          * Mendapatkan data Mata Kuliah untuk semester tertentu, lalu menampilkannya ke UI
          * @param semester Semester yang mata kuliahnya ingin ditampilkan

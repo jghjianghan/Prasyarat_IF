@@ -30,4 +30,6 @@
     <string name="insignt_lulus">" Mata kuliah ini menjadi prasyarat lulus bagi %d mata kuliah lain"</string>
     <string name="insignt_tempuh">" Mata kuliah ini menjadi prasyarat tempuh bagi %d mata kuliah lain"</string>
     <string name="insignt_depth">" Mata kuliah ini memiliki rantai prasyarat sepanjang %d"</string>
+
+    <string name="berbintang_title">Berbintang</string>
 </resources>

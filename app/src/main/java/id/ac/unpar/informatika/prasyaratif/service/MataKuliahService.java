@@ -26,6 +26,10 @@ public class MataKuliahService {
     private List<List<MataKuliah>> mataKuliahPerSemester;
     private volatile boolean isFetched = false;
 
+    public List<List<MataKuliah>> getMataKuliahPerSemester() {
+        return mataKuliahPerSemester;
+    }
+
     /**
      * Mengambil data ke API, lalu diberi ke listener
      * Jika data sudah pernah diambil, langsung diberikan ke listener

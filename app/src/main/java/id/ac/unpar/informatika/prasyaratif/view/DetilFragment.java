@@ -36,7 +36,7 @@ public class DetilFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentDetilMatkulBinding.inflate(LayoutInflater.from(getContext()), container, false);
+        binding = FragmentDetilMatkulBinding.inflate(inflater, container, false);
 
         if (mataKuliah != null){
             populateData();
@@ -71,6 +71,14 @@ public class DetilFragment extends Fragment {
         populatePrasyarat(binding.sectionSyaratLulus, mataKuliah.getPrasyaratLulus(), binding.tvNoPrasLulus);
         populatePrasyarat(binding.sectionSyaratTempuh, mataKuliah.getPrasyaratTempuh(), binding.tvNoPrasTempuh);
         populatePrasyarat(binding.sectionSyaratBersama, mataKuliah.getPrasyaratBersamaan(), binding.tvNoPrasBersama);
+
+        binding.ivStar.setImageResource(mataKuliah.getIsFavorite() ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
+
+        binding.ivStar.setOnClickListener((View view) -> {
+            Log.d("favorite", "clicked");
+            mataKuliah.toggleIsFavorite();
+            binding.ivStar.setImageResource(mataKuliah.getIsFavorite() ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
+        });
 
         if (mataKuliah.getBerlakuAngkatan() == 0){
             binding.tvBerlakuAngkatan.setText(R.string.matkul_tidak_ada_angkatan);

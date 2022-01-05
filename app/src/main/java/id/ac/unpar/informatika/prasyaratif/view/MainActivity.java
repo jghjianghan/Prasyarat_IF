@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     BerandaUtama berandaUtama;
     TentangFragment tentangFragment;
     DetilFragment detilFragment;
+    BerbintangFragment berbintangFragment;
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -95,7 +96,9 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void displayFavorites(List<MataKuliah> listMK) {
+        berbintangFragment = BerbintangFragment.newInstance(listMK);
 
+        changePage(PAGE_BERBINTANG);
     }
 
     public void changePage(int page) {
@@ -108,6 +111,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case PAGE_BERBINTANG:
                 popAllDetailFromStacks();
+                fragmentTransaction.replace(R.id.fragment_container, this.berbintangFragment);
                 break;
             case PAGE_TENTANG:
                 popAllDetailFromStacks();
@@ -154,6 +158,7 @@ public class MainActivity extends AppCompatActivity
                 changePage(PAGE_BERANDA);
                 return true;
             case R.id.menu_item_berbintang:
+                presenter.showMataKuliahBerbintang();
                 return true;
             case R.id.menu_item_repo:
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jghjianghan/Prasyarat_IF"));
