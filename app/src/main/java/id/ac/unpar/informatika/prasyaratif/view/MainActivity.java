@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,10 +36,22 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
             binding.drawerLayout.open();
         });
         binding.navigationView.setNavigationItemSelectedListener((MenuItem menuItem) -> {
-            menuItem.setChecked(true);
             binding.drawerLayout.close();
-            return true;
+            switch (menuItem.getItemId()){
+                case R.id.menu_item_beranda:
+                    return true;
+                case R.id.menu_item_berbintang:
+                    return true;
+                case R.id.menu_item_repo:
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jghjianghan/Prasyarat_IF"));
+                    startActivity(browserIntent);
+                    break;
+                case R.id.menu_item_tentang:
+                    return true;
+            }
+            return false;
         });;
+
 
         this.fragmentManager = getSupportFragmentManager();
 
