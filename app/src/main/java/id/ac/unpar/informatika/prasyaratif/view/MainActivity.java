@@ -5,11 +5,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
 import id.ac.unpar.informatika.prasyaratif.PrasyaratContract;
 import id.ac.unpar.informatika.prasyaratif.R;
+import id.ac.unpar.informatika.prasyaratif.databinding.ActivityMainBinding;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
 import id.ac.unpar.informatika.prasyaratif.presenter.MainPresenter;
 
@@ -19,11 +22,22 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     PrasyaratContract.Presenter presenter;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.topAppBar.setNavigationOnClickListener((View view) -> {
+            binding.drawerLayout.open();
+        });
+        binding.navigationView.setNavigationItemSelectedListener((MenuItem menuItem) -> {
+            menuItem.setChecked(true);
+            binding.drawerLayout.close();
+            return true;
+        });;
 
         this.fragmentManager = getSupportFragmentManager();
 
@@ -69,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
         fragmentTransaction = fragmentManager.beginTransaction();
 
         if(page == 1){
-            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
+//            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
         } //else if(page == 2){
 //            fragmentTransaction.replace(R.id.fragment_container, this.detilMatakuliah);
 //        } else if(page == 3){
