@@ -37,7 +37,7 @@ public class BerandaUtama
     private FragmentListener listener;
     RecyclerView recyclerView;
 
-    List<MataKuliah> mataKuliahList;
+    List<List<MataKuliah>> mataKuliahList;
 
     ExpandableListView expandableListView;
     MataKuliahAdapter adapterMatkul;
@@ -55,10 +55,14 @@ public class BerandaUtama
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         expandableListView = view.findViewById(R.id.expandableListView);
-        expandableListDetail = ExpandableListDataPump.getData();
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        Collections.sort(expandableListTitle);
+        expandableListDetail = new HashMap<>();
+        expandableListTitle = new ArrayList<String>();
 
+        for(int i = 0; i < mataKuliahList.size(); i++){
+            String sem = "Semester " + (i+1);
+            expandableListTitle.add(sem);
+            expandableListDetail.put(sem, mataKuliahList.get(i));
+        }
 
         adapterMatkul = new MataKuliahAdapter(getContext(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(adapterMatkul);
@@ -68,7 +72,7 @@ public class BerandaUtama
 
     public static BerandaUtama newInstance(List<List<MataKuliah>> mkPerSemester){
         BerandaUtama fragment = new BerandaUtama();
-        fragment.mataKuliahList = mkPerSemester.get(0);
+        fragment.mataKuliahList = mkPerSemester;
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

@@ -1,16 +1,23 @@
 package id.ac.unpar.informatika.prasyaratif.presenter;
 
+import android.os.Looper;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import id.ac.unpar.informatika.prasyaratif.PrasyaratContract;
+import id.ac.unpar.informatika.prasyaratif.UIThreadWrapper;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
+import id.ac.unpar.informatika.prasyaratif.service.MataKuliahService;
 
-public class MainPresenter implements PrasyaratContract.Presenter {
+public class MainPresenter implements PrasyaratContract.Presenter, MataKuliahService.APIListener {
     PrasyaratContract.UI ui;
+    MataKuliahService mataKuliahService = new MataKuliahService();
+    UIThreadWrapper handler;
 
     public MainPresenter(PrasyaratContract.UI ui){
         this.ui = ui;
+        handler = new UIThreadWrapper(Looper.getMainLooper(), ui);
     }
 
     /**
@@ -29,6 +36,7 @@ public class MainPresenter implements PrasyaratContract.Presenter {
      */
     @Override
     public void showMataKuliah(){
+        mataKuliahService.fetchMataKuliah(this);
         List<List<MataKuliah>>  mks = new ArrayList<>();
         List<MataKuliah> sem1 = new ArrayList<>();
 //        List<Semester>  mks = new ArrayList<>();
@@ -75,6 +83,12 @@ public class MainPresenter implements PrasyaratContract.Presenter {
      */
     @Override
     public void toggleFavorite(MataKuliah mk) {
+
+    }
+
+    @Override
+    public void onFetched(List<List<MataKuliah>> dataMataKuliahPerSemester) {
+        handler.displayMataKuliahList(dataMataKuliahPerSemester);
 
     }
 }
