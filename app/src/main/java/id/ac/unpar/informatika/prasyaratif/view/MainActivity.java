@@ -103,51 +103,40 @@ public class MainActivity extends AppCompatActivity
 
         switch (page){
             case PAGE_BERANDA:
-                matkulDetailStack.clear();
+                popAllDetailFromStacks();
                 fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
                 break;
             case PAGE_BERBINTANG:
-                matkulDetailStack.clear();
+                popAllDetailFromStacks();
                 break;
             case PAGE_TENTANG:
-                matkulDetailStack.clear();
+                popAllDetailFromStacks();
                 fragmentTransaction.replace(R.id.fragment_container, this.tentangFragment);
                 break;
             case PAGE_DETAIL:
-                if (detilFragment == null){
-                    detilFragment = new DetilFragment();
-                }
-                detilFragment.setMataKuliah(this.matkulDetailStack.getLast());
                 fragmentTransaction
                         .setCustomAnimations(R.anim.slide_left_in, R.anim.nothing, R.anim.nothing, R.anim.slide_right_out)
-                        .replace(R.id.fragment_container, detilFragment);
+                        .replace(R.id.fragment_container, DetilFragment.newInstance(this.matkulDetailStack.getLast()))
+                        .addToBackStack(null);
                 break;
         }
-//        if(page == 1){
-//        } else if(page == 2){
-//            fragmentTransaction.replace(R.id.fragment_container, this.detilMatakuliah);
-//        } else if(page == 3){
-//            fragmentTransaction.replace(R.id.fragment_container, this.repostiory);
-//        } else if(page == 4){
-//            fragmentTransaction.replace(R.id.fragment_container, this.filter);
-//        } else if(page == 5){
-//            fragmentTransaction.replace(R.id.fragment_container, this.about?);
-//        }
 
         fragmentTransaction.commit();
     }
 
+    private void popAllDetailFromStacks(){
+        while(!matkulDetailStack.isEmpty()){
+            matkulDetailStack.pollLast();
+            getSupportFragmentManager().popBackStack();
+        }
+    }
+
     @Override
     public void onBackPressed(){
-        if (matkulDetailStack.isEmpty()){
-            super.onBackPressed();
+        if (binding.drawerLayout.isOpen()){
+            binding.drawerLayout.close();
         } else {
-            matkulDetailStack.pollLast();
-            if (matkulDetailStack.isEmpty()){
-                changePage(PAGE_BERANDA);
-            } else {
-                changePage(PAGE_DETAIL);
-            }
+            super.onBackPressed();
         }
     }
 

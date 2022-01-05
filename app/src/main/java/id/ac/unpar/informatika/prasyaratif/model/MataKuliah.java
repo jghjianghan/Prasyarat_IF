@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class MataKuliah {
 
+    public static final int CRITICAL_PRASYARAT_LULUS_LIMIT = 3;
+    public static final int CRITICAL_PRASYARAT_TEMPUH_LIMIT = 5;
+    public static final int CRITICAL_DEPTH_LIMIT = 4;
+
     private String nama;
     private String kode;
     private int semester;
@@ -19,9 +23,11 @@ public class MataKuliah {
     private List<MataKuliah> prasyaratBersamaan;
     private int berlakuAngkatan;
     private boolean isFavorite;
-    private int prasyaratLulusBagi;
-    private int prasyaratTempuhBagi;
-    private int panjangRantaiKeBawah;
+
+    //insight
+    private int prasyaratLulusBagi; // n = 3
+    private int prasyaratTempuhBagi; // n = 5
+    private int panjangRantaiKeBawah; // n = 4
 
     public MataKuliah(String nama,
                       String kode,
@@ -166,6 +172,10 @@ public class MataKuliah {
 
     public void setPanjangRantaiKeBawah(int panjangRantaiKeBawah) {
         this.panjangRantaiKeBawah = panjangRantaiKeBawah;
+    }
+
+    public boolean isCritical(){
+        return prasyaratLulusBagi >= CRITICAL_PRASYARAT_LULUS_LIMIT || prasyaratTempuhBagi >= CRITICAL_PRASYARAT_TEMPUH_LIMIT || panjangRantaiKeBawah >= CRITICAL_DEPTH_LIMIT;
     }
 
     @Override
