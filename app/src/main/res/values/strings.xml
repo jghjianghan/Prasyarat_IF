@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prasyarat_IF</string>
+    <string name="app_name">Prasyarat IF</string>
     <string name="menu_title_beranda">Beranda</string>
     <string name="menu_title_berbintang">Berbintang</string>
     <string name="menu_title_repo">Repository</string>
