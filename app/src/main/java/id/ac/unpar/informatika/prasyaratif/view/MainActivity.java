@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements PrasyaratContract
         fragmentTransaction = fragmentManager.beginTransaction();
 
         if(page == 1){
-//            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
+            fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
         } //else if(page == 2){
 //            fragmentTransaction.replace(R.id.fragment_container, this.detilMatakuliah);
 //        } else if(page == 3){
