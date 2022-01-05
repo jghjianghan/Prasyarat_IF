@@ -174,6 +174,10 @@ public class MataKuliah {
         this.panjangRantaiKeBawah = panjangRantaiKeBawah;
     }
 
+    public boolean isCritical(){
+        return prasyaratLulusBagi >= CRITICAL_PRASYARAT_LULUS_LIMIT || prasyaratTempuhBagi >= CRITICAL_PRASYARAT_TEMPUH_LIMIT || panjangRantaiKeBawah >= CRITICAL_DEPTH_LIMIT;
+    }
+
     @Override
     public String toString() {
         String[] daftarPrasyaratLulus = new String[prasyaratLulus.size()];

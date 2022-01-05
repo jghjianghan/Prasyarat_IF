@@ -66,22 +66,15 @@ public class MataKuliahAdapter extends BaseExpandableListAdapter {
         TextView tvKode = (TextView) convertView.findViewById(R.id.tv_kodeMatkul);
         TextView tvWajib = (TextView) convertView.findViewById(R.id.tv_wajib);
         ImageView ivStar = convertView.findViewById(R.id.iv_star);
+        ImageView ivInsight = convertView.findViewById(R.id.iv_insight);
 
         tvNama.setText(nama);
         tvSks.setText(sks + " sks");
         tvKode.setText(kode);
 
-        if(wajib){
-            tvWajib.setVisibility(View.VISIBLE);
-        } else {
-            tvWajib.setVisibility(View.INVISIBLE);
-        }
-
-        if(isFavorite){
-            ivStar.setImageResource(android.R.drawable.btn_star_big_on);
-        } else {
-            ivStar.setImageResource(android.R.drawable.btn_star_big_off);
-        }
+        tvWajib.setVisibility(wajib ? View.VISIBLE : View.INVISIBLE);
+        ivInsight.setVisibility(mataKuliah.isCritical() ? View.VISIBLE : View.INVISIBLE);
+        ivStar.setImageResource(isFavorite ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
 
         return convertView;
     }

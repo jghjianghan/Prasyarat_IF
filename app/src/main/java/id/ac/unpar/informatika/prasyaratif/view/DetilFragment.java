@@ -91,6 +91,7 @@ public class DetilFragment extends Fragment {
                 itemBinding.tvKodeMatkul.setText(mkPras.getKode());
 
                 itemBinding.tvWajib.setVisibility(mkPras.isWajib() ? View.VISIBLE : View.INVISIBLE);
+                itemBinding.ivInsight.setVisibility(mkPras.isCritical() ? View.VISIBLE : View.INVISIBLE);
                 itemBinding.ivStar.setImageResource(mkPras.getIsFavorite() ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
 
                 itemBinding.getRoot().setTag(mkPras);
