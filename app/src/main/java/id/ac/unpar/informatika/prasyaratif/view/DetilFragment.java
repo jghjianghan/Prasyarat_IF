@@ -74,8 +74,11 @@ public class DetilFragment extends Fragment {
                 itemBinding.tvNamaMatkul.setText(mkPras.getNama());
                 itemBinding.tvSks.setText(mkPras.getSks() + " sks");
                 itemBinding.tvKodeMatkul.setText(mkPras.getKode());
-                //isWajib
-                //isFavorite
+
+                itemBinding.tvWajib.setVisibility(mkPras.isWajib() ? View.VISIBLE : View.INVISIBLE);
+
+                itemBinding.ivStar.setImageResource(mkPras.getIsFavorite() ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
+
                 itemBinding.getRoot().setTag(mkPras);
                 itemBinding.getRoot().setOnClickListener(cardClickListener);
                 parent.addView(itemBinding.getRoot());

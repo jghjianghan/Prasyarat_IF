@@ -133,20 +133,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed(){
+        if (binding.drawerLayout.isOpen()){
+            binding.drawerLayout.close();
+        } else {
             super.onBackPressed();
-//        if (matkulDetailStack.isEmpty()){
-//        } else {
-//            matkulDetailStack.pollLast();
-//            if (matkulDetailStack.isEmpty()){
-//                changePage(PAGE_BERANDA);
-//            } else {
-//                fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction
-//                        .setCustomAnimations(R.anim.slide_right_out, R.anim.nothing)
-//                        .replace(R.id.fragment_container, DetilFragment.newInstance(this.matkulDetailStack.getLast()));
-//                fragmentTransaction.commit();
-//            }
-//        }
+        }
     }
 
     @Override

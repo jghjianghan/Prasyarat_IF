@@ -19,9 +19,11 @@ public class MataKuliah {
     private List<MataKuliah> prasyaratBersamaan;
     private int berlakuAngkatan;
     private boolean isFavorite;
-    private int prasyaratLulusBagi;
-    private int prasyaratTempuhBagi;
-    private int panjangRantaiKeBawah;
+
+    //insight
+    private int prasyaratLulusBagi; // n = 3
+    private int prasyaratTempuhBagi; // n = 5
+    private int panjangRantaiKeBawah; // n = 4
 
     public MataKuliah(String nama,
                       String kode,
