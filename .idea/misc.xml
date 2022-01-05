@@ -3,19 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/drawable/arrow_down.xml" value="0.27447916666666666" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/drawable/arrow_up.xml" value="0.27447916666666666" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.27447916666666666" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/beranda_utama.xml" value="0.27447916666666666" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/fragment_berandautama.xml" value="0.1" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/item_list.xml" value="0.4" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/list_group.xml" value="0.25833333333333336" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/list_item.xml" value="0.1" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/nested_item.xml" value="0.25833333333333336" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/semester_recyclerview.xml" value="0.25833333333333336" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/layout/semester_rv_item.xml" value="0.4" />
-        <entry key="..\:/KULIAH/Semester 7/Layanan Berbasis Web A/Klmpk E/Aplikasi Prasyarat/app/src/main/res/menu/main_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/drawable/ic_beranda.xml" value="0.11666666666666667" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/activity_main.xml" value="0.20987654320987653" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/fragment_gallery.xml" value="0.10260416666666666" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/fragment_slideshow.xml" value="0.12771739130434784" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/fragment_tentang.xml" value="0.12771739130434784" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/header_navigation_drawer.xml" value="0.18" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/layout/nav_header_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/menu/main_menu.xml" value="0.18055555555555555" />
+        <entry key="..\:/Kuliah/MobileProgramming/Prasyarat_IF/app/src/main/res/menu/navigation_drawer.xml" value="0.1" />
       </map>
     </option>
   </component>
