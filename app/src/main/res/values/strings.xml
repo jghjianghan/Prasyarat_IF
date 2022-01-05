@@ -27,4 +27,7 @@
     <string name="matkul_tidak_wajib">Pilihan</string>
     <string name="matkul_tidak_ada_angkatan">Tidak ada berlaku angkatan</string>
     <string name="matkul_no_prasyarat">Tidak ada prasyarat</string>
+    <string name="insignt_lulus">" Mata kuliah ini menjadi prasyarat lulus bagi %d mata kuliah lain"</string>
+    <string name="insignt_tempuh">" Mata kuliah ini menjadi prasyarat tempuh bagi %d mata kuliah lain"</string>
+    <string name="insignt_depth">" Mata kuliah ini memiliki rantai prasyarat sepanjang %d"</string>
 </resources>

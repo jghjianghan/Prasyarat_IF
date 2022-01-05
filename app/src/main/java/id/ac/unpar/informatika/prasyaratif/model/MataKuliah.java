@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class MataKuliah {
 
+    public static final int CRITICAL_PRASYARAT_LULUS_LIMIT = 3;
+    public static final int CRITICAL_PRASYARAT_TEMPUH_LIMIT = 5;
+    public static final int CRITICAL_DEPTH_LIMIT = 4;
+
     private String nama;
     private String kode;
     private int semester;

@@ -51,7 +51,7 @@
             android:orientation="horizontal"
             android:layout_marginStart="@dimen/margin_16"
             android:layout_marginEnd="@dimen/margin_16"
-            android:layout_marginBottom="@dimen/margin_40">
+            >
 
             <TextView
                 android:id="@+id/tv_kode_matkul"
@@ -75,6 +75,69 @@
                 android:text="Wajib/Tidak"
                 android:textColor="@color/black"/>
 
+        </LinearLayout>
+
+        <!--Insights-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/margin_16"
+            >
+            <LinearLayout
+                android:id="@+id/layout_insight_lulus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv_insight1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_insight" />
+                <TextView
+                    android:id="@+id/tv_insight_lulus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insignt_lulus"
+                    android:textColor="@color/red"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_insight_tempuh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv_insight2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_insight" />
+                <TextView
+                    android:id="@+id/tv_insight_tempuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insignt_tempuh"
+                    android:textColor="@color/red"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_insight_depth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv_insight3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_insight" />
+                <TextView
+                    android:id="@+id/tv_insight_depth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insignt_depth"
+                    android:textColor="@color/red"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
         <!--Syarat lulus-->

@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,6 +51,23 @@ public class DetilFragment extends Fragment {
         binding.tvSks.setText(mataKuliah.getSks() + " sks");
         binding.tvWajib.setText(mataKuliah.isWajib() ? R.string.matkul_wajib:R.string.matkul_tidak_wajib);
 
+        //insights
+        if (mataKuliah.getPrasyaratLulusBagi() < MataKuliah.CRITICAL_PRASYARAT_LULUS_LIMIT){
+            binding.layoutInsightLulus.setVisibility(View.GONE);
+        } else {
+            binding.tvInsightLulus.setText(String.format(getString(R.string.insignt_lulus), mataKuliah.getPrasyaratLulusBagi()));
+        }
+        if (mataKuliah.getPrasyaratTempuhBagi() < MataKuliah.CRITICAL_PRASYARAT_TEMPUH_LIMIT){
+            binding.layoutInsightTempuh.setVisibility(View.GONE);
+        } else {
+            binding.tvInsightTempuh.setText(String.format(getString(R.string.insignt_tempuh), mataKuliah.getPrasyaratTempuhBagi()));
+        }
+        if (mataKuliah.getPanjangRantaiKeBawah() < MataKuliah.CRITICAL_DEPTH_LIMIT){
+            binding.layoutInsightDepth.setVisibility(View.GONE);
+        } else {
+            binding.tvInsightDepth.setText(String.format(getString(R.string.insignt_depth), mataKuliah.getPanjangRantaiKeBawah()));
+        }
+
         populatePrasyarat(binding.sectionSyaratLulus, mataKuliah.getPrasyaratLulus(), binding.tvNoPrasLulus);
         populatePrasyarat(binding.sectionSyaratTempuh, mataKuliah.getPrasyaratTempuh(), binding.tvNoPrasTempuh);
         populatePrasyarat(binding.sectionSyaratBersama, mataKuliah.getPrasyaratBersamaan(), binding.tvNoPrasBersama);
@@ -76,7 +91,6 @@ public class DetilFragment extends Fragment {
                 itemBinding.tvKodeMatkul.setText(mkPras.getKode());
 
                 itemBinding.tvWajib.setVisibility(mkPras.isWajib() ? View.VISIBLE : View.INVISIBLE);
-
                 itemBinding.ivStar.setImageResource(mkPras.getIsFavorite() ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
 
                 itemBinding.getRoot().setTag(mkPras);
