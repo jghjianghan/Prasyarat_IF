@@ -24,6 +24,6 @@
     <string name="top_app_bar">Prasyarat IF</string>
 
     <string name="matkul_wajib">Wajib</string>
-    <string name="matkul_tidak_wajib">Tidak Wajib</string>
+    <string name="matkul_tidak_wajib">Pilihan</string>
     <string name="matkul_tidak_ada_angkatan">Tidak ada berlaku angkatan</string>
 </resources>

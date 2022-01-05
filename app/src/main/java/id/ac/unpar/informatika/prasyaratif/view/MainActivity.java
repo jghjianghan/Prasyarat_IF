@@ -117,7 +117,9 @@ public class MainActivity extends AppCompatActivity
                     detilFragment = new DetilFragment();
                 }
                 detilFragment.setMataKuliah(this.matkulDetailStack.getLast());
-                fragmentTransaction.replace(R.id.fragment_container, detilFragment);
+                fragmentTransaction
+                        .setCustomAnimations(R.anim.slide_left_in, R.anim.nothing, R.anim.nothing, R.anim.slide_right_out)
+                        .replace(R.id.fragment_container, detilFragment);
                 break;
         }
 //        if(page == 1){
