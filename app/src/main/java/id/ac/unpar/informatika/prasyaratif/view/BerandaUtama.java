@@ -11,20 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
 import id.ac.unpar.informatika.prasyaratif.R;
-import id.ac.unpar.informatika.prasyaratif.model.ExpandableListDataPump;
 import id.ac.unpar.informatika.prasyaratif.model.MataKuliah;
 
 public class BerandaUtama
