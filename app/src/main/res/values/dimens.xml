@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="judul">32sp</dimen>
+    <dimen name="margin_26">26dp</dimen>
+    <dimen name="text_20">20dp</dimen>
     <dimen name="large_text">32sp</dimen>
 </resources>
