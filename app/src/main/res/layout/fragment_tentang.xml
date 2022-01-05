@@ -75,12 +75,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_arjuna"
+                android:text="@string/tv_michael"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_npm1"
+                android:text="@string/tv_npm2"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -103,12 +103,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_arjuna"
+                android:text="@string/tv_jiang"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_npm1"
+                android:text="@string/tv_npm3"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -124,12 +124,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_arjuna"
+                android:text="@string/tv_nicholas"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_npm1"
+                android:text="@string/tv_npm4"
                 android:textColor="@color/black"/>
 
         </LinearLayout>

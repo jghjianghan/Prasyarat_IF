@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Prasyarat_IF</string>
+    <string name="tv_syarat_tempuh">Syarat Tempuh:</string>
+    <string name="tv_syarat_bersama">Syarat Diambil Bersama:</string>
+    <string name="tv_angkatan">Berlaku Mulai Angkatan:</string>
+    <string name="tv_detil_matkul">Detail Mata Kuliah</string>
+    <string name="tv_syarat_lulus">Syarat Lulus:</string>
+    <string name="tv_tentang">Tentang Aplikasi Ini</string>
+    <string name="tv_keterangan">Aplikasi ini dibuat untuk membantu mahasiswa jurusan Teknik Informatika UNPAR untuk melihat daftar mata kuliah pada setiap semester dan prasyarat dari setiap mata kuliah dengan mudah. Pengguna juga bisa menandai mata kuliah favorit supaya bisa diakses dengan lebih cepat. Seluruh data yang digunakan berasal dari repository FTIS UNPAR Open Data.</string>
+    <string name="tv_kontributor">Para Kontributor</string>
+    <string name="tv_arjuna">Arjuna Simanjuntak</string>
+    <string name="tv_npm1">2017730057</string>
+    <string name="tv_michael">Michael Murriyanto Singgih</string>
+    <string name="tv_npm2">2017730078</string>
+    <string name="tv_jiang">Jiang Han</string>
+    <string name="tv_npm3">6181801034</string>
+    <string name="tv_nicholas">Nicholas Khrisna Sandyawan</string>
+    <string name="tv_npm4">6181801060</string>
 </resources>
