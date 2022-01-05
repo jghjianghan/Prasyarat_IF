@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import id.ac.unpar.informatika.prasyaratif.PrasyaratContract;
@@ -26,14 +27,19 @@ public class MainActivity extends AppCompatActivity
 
     BerandaUtama berandaUtama;
     TentangFragment tentangFragment;
+    DetilFragment detilFragment;
+
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     PrasyaratContract.Presenter presenter;
     ActivityMainBinding binding;
 
+    private LinkedList<MataKuliah> matkulDetailStack = new LinkedList<>();
+
     private static final int PAGE_BERANDA = 1;
     private static final int PAGE_BERBINTANG = 2;
     private static final int PAGE_TENTANG = 3;
+    private static final int PAGE_DETAIL = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +81,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    public void showDetailFragment(MataKuliah mataKuliah){
+        matkulDetailStack.addLast(mataKuliah);
+        changePage(PAGE_DETAIL);
+    }
+
     /**
      * Menampilkan daftar mata kuliah yang ditandai bintang pada halaman Favorit
      *
@@ -85,16 +97,27 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    @Override
     public void changePage(int page) {
         fragmentTransaction = fragmentManager.beginTransaction();
 
         switch (page){
             case PAGE_BERANDA:
+                matkulDetailStack.clear();
                 fragmentTransaction.replace(R.id.fragment_container, this.berandaUtama);
                 break;
+            case PAGE_BERBINTANG:
+                matkulDetailStack.clear();
+                break;
             case PAGE_TENTANG:
+                matkulDetailStack.clear();
                 fragmentTransaction.replace(R.id.fragment_container, this.tentangFragment);
+                break;
+            case PAGE_DETAIL:
+                if (detilFragment == null){
+                    detilFragment = new DetilFragment();
+                }
+                detilFragment.setMataKuliah(this.matkulDetailStack.getLast());
+                fragmentTransaction.replace(R.id.fragment_container, detilFragment);
                 break;
         }
 //        if(page == 1){
@@ -109,6 +132,20 @@ public class MainActivity extends AppCompatActivity
 //        }
 
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (matkulDetailStack.isEmpty()){
+            super.onBackPressed();
+        } else {
+            matkulDetailStack.pollLast();
+            if (matkulDetailStack.isEmpty()){
+                changePage(PAGE_BERANDA);
+            } else {
+                changePage(PAGE_DETAIL);
+            }
+        }
     }
 
     @Override
