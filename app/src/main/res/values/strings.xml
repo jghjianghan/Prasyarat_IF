@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prasyarat_IF</string>
+    <string name="app_name">Prasyarat IF</string>
     <string name="tv_syarat_tempuh">Syarat Tempuh:</string>
     <string name="tv_syarat_bersama">Syarat Diambil Bersama:</string>
     <string name="tv_angkatan">Berlaku Mulai Angkatan:</string>
@@ -16,4 +16,10 @@
     <string name="tv_npm3">6181801034</string>
     <string name="tv_nicholas">Nicholas Khrisna Sandyawan</string>
     <string name="tv_npm4">6181801060</string>
+
+    <string name="menu_title_beranda">Beranda</string>
+    <string name="menu_title_berbintang">Berbintang</string>
+    <string name="menu_title_repo">Repository</string>
+    <string name="menu_title_tentang">Tentang</string>
+    <string name="top_app_bar">Prasyarat IF</string>
 </resources>

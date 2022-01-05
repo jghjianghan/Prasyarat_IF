@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Kode matkul                 WAJIB-->
+<!--jumlah sks-->
+<!--nama matkul                 bintang-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_weight="1">-->
+<!--                <TextView-->
+<!--                    android:id="@+id/kode_matkul"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                </TextView>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/jumlah_sks"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                </TextView>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/nama_matakuliah"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                </TextView>-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_weight="1"-->
+<!--                >-->
+<!--                <TextView-->
+<!--                    android:id="@+id/wajib"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                </TextView>-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/star"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@android:drawable/btn_star_big_on"-->
+<!--                    >-->
+<!--                </ImageView>-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    ===============================================-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:id="@+id/left_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/tv_kodeMatkul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="AIF181103" />
+
+            <TextView
+                android:id="@+id/tv_sks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="4 sks"
+                />
+
+
+            <ImageView
+                android:id="@+id/iv_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:src="@android:drawable/btn_star_big_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_kodeMatkul">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_wajib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wajib"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_namaMatkul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Matematika Dasar"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

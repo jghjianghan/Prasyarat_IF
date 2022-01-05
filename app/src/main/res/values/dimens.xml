@@ -5,4 +5,5 @@
     <dimen name="judul">32sp</dimen>
     <dimen name="margin_26">26dp</dimen>
     <dimen name="text_20">20dp</dimen>
+    <dimen name="large_text">32sp</dimen>
 </resources>
