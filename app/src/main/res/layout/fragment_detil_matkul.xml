@@ -1,163 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
-
-    <TextView
-        android:layout_marginTop="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_16"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_detil_matkul"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="@dimen/judul"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_16">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mata Kuliah"
-            android:textColor="@color/black"
-            android:textSize="@dimen/margin_26"/>
-
-        <ImageView
-            android:id="@+id/ib_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/btn_star_big_off" />
-
-    </LinearLayout>
-
-    <!--Keterangan matkul-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_40">
-
-        <TextView
-            android:id="@+id/tv_kode_matkul"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kode Mata Kuliah"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tv_sks"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Banyak SKS"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tv_wajib"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wajib/Tidak"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
-
-    <!--Syarat lulus-->
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_40">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_syarat_lulus"
-            android:textColor="@color/black"/>
+        android:background="@color/white">
 
-        <!--Ada garis-->
-
-        <!--CardView-->
         <TextView
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <!--Syarat tempuh-->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_40">
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_syarat_tempuh"
-            android:textColor="@color/black"/>
-
-        <!--CardView-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <!--Syarat diambil bersama-->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_40">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_syarat_bersama"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <!--Berlaku mulai angkatan-->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_16">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="@string/tv_detil_matkul"
+            android:textAllCaps="true"
             android:textColor="@color/black"
-            android:text="@string/tv_angkatan"/>
+            android:textSize="@dimen/judul"/>
 
-        <TextView
-            android:id="@+id/tv_berlaku_angkatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16">
+
+            <TextView
+                android:id="@+id/tv_nama_matkul"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Kuliah"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_26"/>
+
+            <ImageView
+                android:id="@+id/ib_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/btn_star_big_off" />
+
+        </LinearLayout>
+
+        <!--Keterangan matkul-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_40">
+
+            <TextView
+                android:id="@+id/tv_kode_matkul"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kode Mata Kuliah"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_sks"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Banyak SKS"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_wajib"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wajib/Tidak"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <!--Syarat lulus-->
+        <LinearLayout
+            android:id="@+id/section_syarat_lulus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_40">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_syarat_lulus"
+                android:textColor="@color/black"/>
+
+            <!--Ada garis-->
+
+            <!--CardView-->
+            <TextView
+                android:id="@+id/tv_no_pras_lulus"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/matkul_no_prasyarat"
+                />
+
+        </LinearLayout>
+
+        <!--Syarat tempuh-->
+        <LinearLayout
+            android:id="@+id/section_syarat_tempuh"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_40">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_syarat_tempuh"
+                android:textColor="@color/black"/>
+
+            <!--CardView-->
+            <TextView
+                android:id="@+id/tv_no_pras_tempuh"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/matkul_no_prasyarat"
+                />
+
+        </LinearLayout>
+
+        <!--Syarat diambil bersama-->
+        <LinearLayout
+            android:id="@+id/section_syarat_bersama"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_40">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_syarat_bersama"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_no_pras_bersama"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/matkul_no_prasyarat"
+                />
+
+        </LinearLayout>
+
+        <!--Berlaku mulai angkatan-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/tv_angkatan"/>
+
+            <TextView
+                android:id="@+id/tv_berlaku_angkatan"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

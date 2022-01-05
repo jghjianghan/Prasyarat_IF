@@ -26,4 +26,5 @@
     <string name="matkul_wajib">Wajib</string>
     <string name="matkul_tidak_wajib">Pilihan</string>
     <string name="matkul_tidak_ada_angkatan">Tidak ada berlaku angkatan</string>
+    <string name="matkul_no_prasyarat">Tidak ada prasyarat</string>
 </resources>
